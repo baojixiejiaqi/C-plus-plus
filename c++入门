@@ -1,0 +1,115 @@
+#include<iostream>
+//using namespace std;
+//// 实际开发的项目工程
+//// 1、指定命名空间访问
+//// 3、常用部分展开
+//
+//// 小的程序，日常练习，不太会出现冲突
+//// 2、全局展开.一般情况，不建议全局展开的。
+using std::cout;
+using std::endl;
+using std::cin;
+
+//int a = 2;
+//int main()
+//{
+	//int a = 0;
+	//printf("%d\n", a);
+	//printf("%d\n", ::a);//:: 域作用限制符 左边有空格 代表是去全局找
+
+	//std::cout << "hello world" << std::endl;
+	//cout << "hello world" << endl;
+
+
+	/*cout << "1111" << endl;
+	cout << "1111" << endl;
+	cout << "1111" << endl;
+	cout << "1111" << endl;
+	cout << "1111" << endl;
+
+	int i = 0;
+	cin >> i;*/
+
+	//自动识别
+	/*int n = 0;
+	cin >> n;
+
+	double* a = (double*)malloc(sizeof(double) * n);
+	if (a == NULL)
+	{
+		perror("malloc fail");
+		exit(-1);
+	}
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	for (int i = 0; i < n; i++)
+	{
+		cout << a[i] << " ";
+	}*/
+
+	/*char name[30] = "张三";
+	int age = 48;
+	cout << "姓名" << name << endl;
+	cout << "年龄" << age << endl;
+	return 0;*/
+//}
+// 缺省值 = 默认值
+//全缺省 = 全默认
+/*void fun(int a = 4, int b = 10, int c = 6)
+{
+	cout << " a = " << a << endl;
+	cout << " b = " << b << endl;
+	cout << " c = " << c << endl;
+	cout << endl;
+}
+*/
+
+//半缺省 = 半默认
+//半缺省必须从右到左连续缺省
+//void fun(int a, int b = 10,int c = 20)
+//{
+//	cout << " a = " << a << endl;
+//	cout << " b = " << b << endl;
+//	cout << " c = " << c << endl;
+//	cout << endl;
+//}
+//
+//int main()
+//{
+//	//使用缺省值，必须从右到左连续使用
+//	fun(1, 2, 3);
+//	fun(1, 2);
+//	fun(1);
+//	//fun();
+//
+//}
+
+struct Stack
+{
+	int* a;
+	int top;
+	int capacity;
+};
+
+void StackInt(struct Stack* ps, int capacity = 4)
+{
+	ps->a = (int*)malloc(sizeof(int) * capacity);
+	if (ps->a == NULL)
+	{
+		perror("malloc fail");
+		exit(-1);
+	}
+	ps -> top = 0;
+	ps->capacity = capacity;
+}
+int main()
+{
+	Stack st1;
+	StackInt(&st1);
+
+	Stack st2;
+	StackInt(&st2, 100);
+	return 0;
+}

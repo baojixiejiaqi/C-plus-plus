@@ -1,0 +1,27 @@
+class Solution {
+public:
+    /**
+     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+     *
+     * 
+     * @param numbers int整型vector 
+     * @return int整型
+     */
+     //众数肯定在中间
+     //然后判断一下
+    int MoreThanHalfNum_Solution(vector<int>& numbers)
+    {
+        sort(numbers.begin(),numbers.end());
+        int mid = numbers[numbers.size() / 2];
+        int cout = 0;
+        for(const int n:numbers)
+        {
+            if(mid == n)
+                ++cout;
+        }
+        if(cout > numbers.size()/2)
+            return mid;
+
+        return 0;
+    }
+};
